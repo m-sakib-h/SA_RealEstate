@@ -1,0 +1,9 @@
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+test_env3
+.idea
+db.sqlite3
+# db.sqlite3-journal  [jodi thakto tahola ditam na github a tai comment out korci]
