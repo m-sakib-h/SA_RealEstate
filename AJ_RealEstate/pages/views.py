@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from listings.models import Listing
+from realtors.models import Realtor
 
 
 # Create your views here.
@@ -14,4 +15,11 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    team = Realtor.objects.order_by('-contact_date')[:3]
+    seller_of_the_month = Realtor.objects.filter(is_mvp=True).first()
+
+    context = {
+        'team': team,
+        'seller_of_the_month': seller_of_the_month
+    }
+    return render(request, 'pages/about.html', context)
